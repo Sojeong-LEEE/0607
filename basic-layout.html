@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="./style.css">
+<title>basic-layout</title>
+<!-- style tag 밑에 
+defer 속성 (attr)을 script tag에 선언
+맨 밑에 있으면 괜찮음-->
+<!-- <script src="./script.js" defer></script> -->
+</head>
+<body>
+
+    <header id="header" class="header fixedHead">
+        <div id="toggle" class="toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul class="navbar">
+                <li class="navbar__item">
+                    <a href="#" class="navbar__menu" data-link="#about">
+                        about
+                    </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__menu"  data-link="#skills">
+                        skills
+                    </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__menu" data-link="#portfolio">
+                        portfolio
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section id="about" class="flexbox-center">
+        <div class="wrapper">
+            <h1>
+            section about</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, quis? Nostrum, provident aliquid nam iusto eligendi sit, ex dignissimos aut explicabo maiores eius non, obcaecati magnam quod ducimus? Nostrum, rem!</p>
+        </div>
+    </section>
+    <section id="skills" class="flexbox-center">
+        <div class="wrapper">
+            <h1>
+            section skills</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, quis? Nostrum, provident aliquid nam iusto eligendi sit, ex dignissimos aut explicabo maiores eius non, obcaecati magnam quod ducimus? Nostrum, rem!</p>
+        </div>
+    </section>
+    <section id="portfolio" class="flexbox-center">
+        <div class="wrapper">
+            <h1>
+            section portfolio</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, quis? Nostrum, provident aliquid nam iusto eligendi sit, ex dignissimos aut explicabo maiores eius non, obcaecati magnam quod ducimus? Nostrum, rem!</p>
+        </div>
+    </section>
+    <a href="#" id="arrowTop" class="arrow-top flexbox-center">
+        <i class="xi-arrow-up"></i>
+    </a>
+    <!-- 기본 js 링크 위치 -->
+    <script src="./script.js"></script>
+</body>
+</html>

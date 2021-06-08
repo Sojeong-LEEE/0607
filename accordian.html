@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<title>pure js accoridan</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+    }
+    #skill {
+        /* border: 1px solid #000; */
+        margin-top: 10rem;
+    }
+    .accordian {
+        width: 500px;
+        margin: 0 auto;
+        background: #6E6E6D;
+        color: #FAD0C9;
+        position: relative;
+    }
+    .accordian__item i{
+        padding: .2rem;
+        border: 1px solid #FAD0C9;
+        border-radius: 50px;
+    }
+    .accordian__title {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        cursor: pointer;
+    }
+
+    .accordian__desc{
+        background: #FAD0C9;
+        color: #6E6E6D;
+        height: 0;
+        overflow: hidden;
+        transition: all 400ms;
+    }
+    /* click하면 보여지는 상태 */
+    .accordian__title.open + .accordian__desc {
+        padding: 1rem;
+        overflow: hidden;
+        height: 280px;
+    }
+
+    .accordian__title i {
+        transition: all 400ms;
+    }
+    .accordian__title.open i {
+        transform: rotate(180deg);
+        background: #FAD0C9;
+        color: #6E6E6D;
+    }
+    #closerAll {
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        padding: 1rem;
+        border: none;
+        background:#6E6E6D;
+        color: #FAD0C9;
+        border-radius: .5rem .5rem 0 0;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <!-- ul > li > a : nestes 방식
+    accordian__anhcor :  BEM(black - element - modified)
+    장점 : 클래스 바로 접근 가능
+    단점 : 클래스명이 길다, 이름 짓기가 어렵다 -->
+<section id = skill>
+<ul class="accordian">
+    <button id="closerAll">closerAll</button>
+    <li class="accordian__item">
+        <div class="accordian__title">
+            <a href="#">about</a>
+            <i class="xi-arrow-up"></i>
+        </div>
+        <p class="accordian__desc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+        </p>
+    </li>
+    <li class="accordian__item">
+        <div class="accordian__title">
+            <a href="#">skills</a>
+            <i class="xi-arrow-up"></i>
+        </div>
+        <p class="accordian__desc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+        </p>
+    </li>
+    <li class="accordian__item">
+        <div class="accordian__title">
+            <a href="#">info</a>
+            <i class="xi-arrow-up"></i>
+        </div>
+        <p class="accordian__desc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ex sed consequatur itaque sequi dolor. Atque id vel cupiditate nobis cumque aliquid aspernatur. Praesentium cupiditate dolorum, facere necessitatibus iure perferendis?
+        </p>
+    </li>
+</ul>
+</section>
+<!-- 1. 타이틀을 클릭 했을 때
+2. class명 open을 title에다가 붙여준다 -->
+<script>
+var title = document.querySelectorAll('.accordian__title');
+
+console.log(title);
+console.log(title[0]);
+console.log(title[1]);
+console.log(title[2]);
+
+/* title[0].addEventListener('click', function(){
+    title[0].classList.toggle('open');
+});
+title[1].addEventListener('click', function(){
+    title[1].classList.toggle('open');
+});
+title[2].addEventListener('click', function(){
+    title[2].classList.toggle('open');
+}); */
+/* this 전역변수
+특수한 변수
+window - this 같은레벨 */
+for(var i = 0; i < title.length; i++){
+    title[i].addEventListener('click', function(){
+        /* click 되었을 때 this(자기자신에) classList에 toggle 되어라 */
+    this.classList.toggle('open'); });
+}
+
+var closerAll = document.getElementById("closerAll");
+closerAll.addEventListener('clock', function(){
+    for(var i =0; title.length; i++){
+        title[i].classList.remove('open');
+    }
+})
+/* title[0].classList.remove('open');
+title[1].classList.remove('open');
+title[2].classList.remove('open'); */
+</script>
+</body>
+</html>

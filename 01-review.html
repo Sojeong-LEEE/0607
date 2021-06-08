@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 review</title>
+<style>
+    button {
+        padding: 0.5rem;
+    }
+.box {
+    width: 200px;
+    height: 200px;
+    border-radius: .5rem;
+    border: 3px solid #000;
+}
+
+.gold {
+    background: gold;
+}
+</style>
+</head>
+<body>
+    <!-- 1. inline방식 -->
+    <!-- <button onclick="handleColor() ">click</button> -->
+    <button onclick="handleColor() ">click</button>
+
+
+<div class="box gold">
+
+</div>
+
+<script>
+    var box = document.querySelector('.box');
+    var button = document.querySelector('button');
+
+    /* 2. property listener */
+/*     button.onclick = function(){
+        box.style.backgroundColor = 'coral';
+ */
+        /* function handleColor(){
+            box.style.backgroundColor = 'coral';
+        } */
+
+        /* 3. addEventListener 방식 */
+        button.addEventListener('click', handleColor);
+        function handleColor(){
+     /*        console.log('>>>> invoked >>>>')
+                style이라는 객체를 통해서 스타일 변경하는 방법
+            box.style.backgroundColor = 'coral'; */
+            /* console.dir(box.classList[0]); */
+            /* box.classList.add("gold");
+            box.classList.remove("gold"); */
+            box.classList.toggle("gold");
+            
+        }
+    
+</script>
+</body>
+</html>
