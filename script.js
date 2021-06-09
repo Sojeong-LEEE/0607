@@ -64,7 +64,8 @@ window.onload = function(){
         item.addEventListener('click', function(event){
             event.preventDefault();
 
-            
+            toggle.classList.remove('active');
+            navbar.classList.remove('active');
 
             var target = event.target.dataset.link;
             var element = document.querySelector(target);
